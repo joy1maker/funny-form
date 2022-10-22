@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import { useMemo, useState, Fragment } from 'react';
 import './App.css';
-
+import LoginBox from './components/login-box/login-box.component';
+import { UserContext } from "../src/context/userContext"
 function App() {
+  const [user, setUser] = useState({ userName: "", password: "" })
+  const ProviderValue = useMemo(() => ({ user, setUser }), [user, setUser]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <UserContext.Provider value={ProviderValue}>
+        <Fragment>
+          <LoginBox />
+        </Fragment>
+      </UserContext.Provider>
+
     </div>
   );
 }

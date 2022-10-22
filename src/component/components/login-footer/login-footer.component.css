@@ -1,0 +1,19 @@
+.language-list{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.language-list li{
+    margin: 20px 10px;
+    cursor: pointer;
+    color: #737373;
+    font-size: 0.8vw;
+}
+
+.language-list li:hover{
+   text-decoration: underline;
+}
+.language-container{
+    display: flex;
+    flex-direction: column;
+}
